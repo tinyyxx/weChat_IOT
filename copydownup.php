@@ -1,5 +1,5 @@
 <?php
-if ($_GET['token'] == "leyizhou") {//可以改token,这相当于密码，在Arduino端改成相应的值即可
+if ($_GET['token'] == "arduino") {//可以改token,这相当于密码，在Arduino端改成相应的值即可
 	$con = mysql_connect(SAE_MYSQL_HOST_M.':'.SAE_MYSQL_PORT,SAE_MYSQL_USER,SAE_MYSQL_PASS);
 	mysql_select_db("app_wechatiot", $con);//要改成相应的数据库名
 	$result = mysql_query("SELECT * FROM sensor");
