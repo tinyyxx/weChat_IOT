@@ -15,8 +15,7 @@ String cmdStr = "";
 char LED = '0';
 char AC = '0';
 dht11 DHT;
-char humidity = "";
-char temperature = "";
+String humidity,temperature;
 String sendStatus = "";
 int criticalTemp = 30;
 unsigned int turnOn_AC[74] = {8850, 4450, 650, 550, 600, 1650, 600, 600, 600, 1650, 650, 1650, 650, 500, 650, 550, 650, 550,
@@ -106,8 +105,8 @@ void loop() {
     comdata = "";
   }
   delay(2000);
-  humidity = char(DHT.humidity);
-  temperature = char(DHT.temperature);
+  humidity = String(DHT.humidity);
+  temperature = String(DHT.temperature);
   sendStatus = humidity + "-" + temperature;
   cmdStr = "GET http://i5nmvood.qcloud.la/weapp/setLED?id=2&status=" + sendStatus;
   wifi.println(cmdStr);
